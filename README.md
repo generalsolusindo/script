@@ -1,0 +1,2 @@
+# script
+Wazuh and Libre
