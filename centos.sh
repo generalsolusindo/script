@@ -6,9 +6,8 @@ sudo systemctl start wazuh-agent
 
 # SNMP
 sudo yum install net-snmp net-snmp-utils -y
-sudo cp /etc/snmp/snmpd.conf{,.bak}
-sudo sed -i '/agentaddress  127.0.0.1,\[::1\]/a\agentaddress udp:161' /etc/snmp/snmpd.conf
+firewall-cmd --permanent --add-port=161/udp
+firewall-cmd --reload
 sudo systemctl enable snmpd
 sudo systemctl start snmpd
-sudo systemctl restart snmpd
 
