@@ -8,6 +8,5 @@ sudo systemctl start wazuh-agent
 # SNMP
 sudo apt install snmpd snmp libsnmp-dev
 sudo cp /etc/snmp/snmpd.conf{,.bak}
-sudo sed -i '/agentaddress  127.0.0.1,\[::1\]/a\agentaddress 10.10.10.44' /etc/snmp/snmpd.conf
-# sudo sed -i 's/^agentaddress  127.0.0.1,\[::1\]/#&/' /etc/snmp/snmpd.conf
+sudo sed -i '/agentaddress  127.0.0.1,\[::1\]/a\agentaddress udp:161' /etc/snmp/snmpd.conf
 sudo systemctl restart snmpd
